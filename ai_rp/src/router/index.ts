@@ -1,13 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import UserQuery from '@/views/UserQuery.vue'
-
+import IndexView from '@/views/IndexView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/index',
+    name: 'index',
+    component: IndexView
   },
   {
     path: '/userquery',
