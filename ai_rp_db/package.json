@@ -1,0 +1,29 @@
+{
+  "name": "ai_rp_db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node -r tsconfig-paths/register src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test:api": "curl \"http://localhost:3000/api/users/search?keyword=张三\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2"
+  }
+}
