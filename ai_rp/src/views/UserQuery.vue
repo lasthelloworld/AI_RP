@@ -3,7 +3,7 @@
         <h1>用户查询系统</h1>
 
         <div class="search-box">
-            <input v-model="searchKeyword" type="text" placeholder="输入用户名" />
+            <input v-model="searchKeyword"  type="text" placeholder="输入用户名" />
             <button @click="searchUsers">查询</button>
         </div>
 
@@ -21,6 +21,7 @@
                     <th>ID</th>
                     <th>姓名</th>
                     <th>邮箱</th>
+                    <th>创建时间</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +29,7 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.craeted_at }}</td>
+                    <td>{{ user.created_at }}</td>
                 </tr>
             </tbody>
         </table>
@@ -44,7 +45,7 @@ interface User {
     id: number;
     name: string;
     email: string;
-    craeted_at?: string;// 可选属性
+    created_at?: string;// 可选属性
 }
 
 export default defineComponent({
@@ -58,9 +59,9 @@ export default defineComponent({
         const error = computed<string | null>(() => store.state.error)
         const searchUsers = async () => {
             if (!searchKeyword.value.trim()) return
-
+            
             try {
-                // 调用 Vuex action 进行搜索
+                // 调用 Vuex action 进行搜索，在ai_rp/src/store/index.ts中定义
                 await store.dispatch('searchUsers', searchKeyword.value)
             } catch (err) {
                 console.error('用户查询错误:', err)
